@@ -8,7 +8,9 @@ This library contrains a Pytorch implementation fo an automatic design system of
 hoge
 
 ## Structure
-hoge
+data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).
+regression_model:
+optimization:
 
 ## Usage
 hoge
