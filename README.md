@@ -5,7 +5,12 @@ Pytorch implementation of an automatic design system of interior permanent magne
 This library contrains a Pytorch implementation fo an automatic design system of interior permanent magnet synchronous motor as presented in '[1]'([in preparation](https://www.techrxiv.org/))
 
 ## Dependencies
-hoge
+- python>=3.8
+- torch>=1.6.0
+- numpy
+- scikit-learn
+- matplotlib
+- pymoo: [https://pymoo.org/](https://pymoo.org/)
 
 ## Structure
 data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
