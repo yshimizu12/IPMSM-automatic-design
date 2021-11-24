@@ -8,14 +8,13 @@ This library contrains a Pytorch implementation fo an automatic design system of
 - python>=3.8
 - torch>=1.6.0
 - numpy
-- scikit-learn
-- matplotlib
-- pymoo: [https://pymoo.org/](https://pymoo.org/)
+- pandas
+- pillow
 
 ## Structure
 data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
 regression_model:  
-optimization:  
+GAN: 
 
 ## Usage
 hoge
