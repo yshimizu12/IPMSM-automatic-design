@@ -11,13 +11,10 @@ This library contrains a Pytorch implementation fo an automatic design system of
 - pandas
 - pillow
 
-## Structure
-data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
-regression_model:  
-GAN: 
-
 ## Usage
-hoge
+data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
+regression: A characteristics prediction model is implemented. 
+GAN: See https://github.com/lucidrains/lightweight-gan
 
 ## Feedback
 For questions and comments, feel free to contact [Yuki Shimizu](de104004@edu.osakafu-u.ac.jp).
@@ -27,6 +24,8 @@ MIT
 
 ## Citation
 ```
-[1] Y. Shimizu, S. Morimoto, M. Sanada, and Y. Inoue, “Automatic Design System with Generative Adversarial Network and Convolutional Neural Network for Optimization Design of Interior Permanent Magnet Synchronous Motor,” in preparation
+[1] Y. Shimizu, S. Morimoto, M. Sanada, and Y. Inoue, “Automatic Design System with Generative  
+Adversarial Network and Convolutional Neural Network for Optimization Design of Interior  
+Permanent Magnet Synchronous Motor,” in preparation
 ```
 
