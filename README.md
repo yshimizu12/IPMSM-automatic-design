@@ -1,6 +1,7 @@
 # IPMSM-automatic-design
 Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors ([in preparation](https://www.techrxiv.org/))
-![generated_rotor_shapes](https://user-images.githubusercontent.com/75551755/143834674-f3168a9a-dd54-4ced-aba9-c01aaf5fee41.gif)
+
+![generated_rotor_shapes](https://user-images.githubusercontent.com/75551755/143835458-ea355f78-fac2-4840-b9df-3b36253ba7ae.gif)
 
 ## Overview
 This library contains a Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors as presented in [1] ([in preparation](https://www.techrxiv.org/))
