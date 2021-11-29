@@ -1,5 +1,6 @@
 # IPMSM-automatic-design
 Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors ([in preparation](https://www.techrxiv.org/))
+![generated_rotor_shapes](https://user-images.githubusercontent.com/75551755/143834674-f3168a9a-dd54-4ced-aba9-c01aaf5fee41.gif)
 
 ## Overview
 This library contains a Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors as presented in [1] ([in preparation](https://www.techrxiv.org/))
@@ -12,7 +13,7 @@ This library contains a Pytorch implementation of an automatic design system for
 - pillow
 
 ## Usage
-[data](/data): should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
+data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
 [regression](/regression.py): A characteristics prediction model is implemented.  
 GAN: See https://github.com/lucidrains/lightweight-gan
 
@@ -28,4 +29,3 @@ MIT
 Adversarial Network and Convolutional Neural Network for Optimization Design of Interior  
 Permanent Magnet Synchronous Motor,” Submitted
 ```
-
