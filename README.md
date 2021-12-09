@@ -13,7 +13,7 @@ This library contains a Pytorch implementation of an automatic design system for
 - pandas
 - pillow
 
-## Usage
+## Architecture
 data: should contain your datasets. You can download the dataset used for the paper [here](https://ieee-dataport.org/documents/dataset-motor-parameters-ipmsm).  
 [regression](/regression.py): A characteristics prediction model is implemented.  
 GAN: See https://github.com/lucidrains/lightweight-gan
