@@ -4,7 +4,7 @@ Pytorch implementation of an automatic design system for interior permanent magn
 ![generated_rotor_shapes](https://user-images.githubusercontent.com/75551755/143835458-ea355f78-fac2-4840-b9df-3b36253ba7ae.gif)
 
 ## Overview
-This library contains a Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors as presented in [1](https://www.techrxiv.org/articles/preprint/Automatic_Design_System_with_Generative_Adversarial_Network_and_Convolutional_Neural_Network_for_Optimization_Design_of_Interior_Permanent_Magnet_Synchronous_Motor/17072852)
+This library contains a Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors as presented in [[1](https://www.techrxiv.org/articles/preprint/Automatic_Design_System_with_Generative_Adversarial_Network_and_Convolutional_Neural_Network_for_Optimization_Design_of_Interior_Permanent_Magnet_Synchronous_Motor/17072852)]
 
 ## Dependencies
 - python>=3.8
