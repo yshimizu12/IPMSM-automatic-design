@@ -80,8 +80,8 @@ def set_data_src(NUM_CORES, batch_size, world_size, rank):
     dataset = ImageDataset()
     n_samples = len(dataset)
     train_size = int(n_samples*0.8)
-    test_size = n_samples - train_size
-    train_dataset, test_dataset = torch.utils.data.random_split(dataset, [train_size, test_size])
+    valid_size = n_samples - train_size
+    train_dataset, valid_dataset = torch.utils.data.random_split(dataset, [train_size, valid_size])
     train_sampler = DistributedSampler(
         train_dataset,
         rank=rank,
@@ -97,22 +97,22 @@ def set_data_src(NUM_CORES, batch_size, world_size, rank):
         drop_last = True,
         pin_memory = True
         )
-    test_sampler = DistributedSampler(
-        test_dataset,
+    valid_sampler = DistributedSampler(
+        valid_dataset,
         rank=rank,
         num_replicas=world_size,
         shuffle=True
         ) if is_ddp else None
-    test_dataloader = DataLoader(
-        test_dataset,
+    valid_dataloader = DataLoader(
+        valid_dataset,
         num_workers = math.ceil(NUM_CORES / world_size),
         batch_size = math.ceil(batch_size / world_size),
-        sampler = test_sampler,
+        sampler = valid_sampler,
         shuffle = not is_ddp,
         drop_last = True,
         pin_memory = True
         )
-    return train_dataloader, test_dataloader
+    return train_dataloader, valid_dataloader
 
 if __name__ == '__main__':
     np.random.seed(1234)
@@ -140,7 +140,7 @@ if __name__ == '__main__':
             writer = csv.writer(f, lineterminator='\n')
             writer.writerows(result)
 
-    train_loader, test_loader = set_data_src(NUM_CORES, batch_size, world_size, rank)
+    train_loader, valid_loader = set_data_src(NUM_CORES, batch_size, world_size, rank)
     model = Regression(4,10,15).to(device)
 
     def compute_loss(label, pred):
@@ -156,7 +156,7 @@ if __name__ == '__main__':
         loss.backward()
         optimizer.step()
         return (loss1, loss2, loss3), preds
-    def test_step(x, t1, t2, t3):
+    def valid_step(x, t1, t2, t3):
         model.eval()
         preds = model(x)
         loss1 = compute_loss(t1, preds[0])
@@ -174,9 +174,9 @@ if __name__ == '__main__':
         train_loss1 = 0.
         train_loss2 = 0.
         train_loss3 = 0.
-        test_loss1 = 0.
-        test_loss2 = 0.
-        test_loss3 = 0.
+        valid_loss1 = 0.
+        valid_loss2 = 0.
+        valid_loss3 = 0.
         for (x, t1, t2, t3) in train_loader:
             x, t1, t2, t3 = x.to(device), t1.to(device), t2.to(device), t3.to(device)
             loss, _ = train_step(x, t1, t2, t3)
@@ -186,20 +186,20 @@ if __name__ == '__main__':
         train_loss1 /= len(train_loader)
         train_loss2 /= len(train_loader)
         train_loss3 /= len(train_loader)
-        for (x, t1, t2, t3) in test_loader:
+        for (x, t1, t2, t3) in valid_loader:
             x, t1, t2, t3 = x.to(device), t1.to(device), t2.to(device), t3.to(device)
-            loss, _ = test_step(x, t1, t2, t3)
-            test_loss1 += loss[0].item()
-            test_loss2 += loss[1].item()
-            test_loss3 += loss[2].item()
-        test_loss1 /= len(test_loader)
-        test_loss2 /= len(test_loader)
-        test_loss3 /= len(test_loader)
+            loss, _ = valid_step(x, t1, t2, t3)
+            valid_loss1 += loss[0].item()
+            valid_loss2 += loss[1].item()
+            valid_loss3 += loss[2].item()
+        valid_loss1 /= len(valid_loader)
+        valid_loss2 /= len(valid_loader)
+        valid_loss3 /= len(valid_loader)
         elapsed_time = time.time()-time_start
-        print('Epoch: {}, Train rmse: {}, Test rmse: {}, Elapsed time: {:.1f}sec'.format(
+        print('Epoch: {}, Train rmse: {}, Valid rmse: {}, Elapsed time: {:.1f}sec'.format(
             epoch+1,
             (train_loss1, train_loss2, train_loss3),
-            (test_loss1, test_loss2, test_loss3),
+            (valid_loss1, valid_loss2, valid_loss3),
             elapsed_time
         ))
         results.append([
@@ -207,9 +207,9 @@ if __name__ == '__main__':
             train_loss1,
             train_loss2,
             train_loss3,
-            test_loss1,
-            test_loss2,
-            test_loss3,
+            valid_loss1,
+            valid_loss2,
+            valid_loss3,
             elapsed_time
         ])
         if (epoch+1) % save_every == 0: save_model(model.state_dict(), epoch+1)
