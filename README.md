@@ -19,7 +19,7 @@ data: You can download the dataset used for the paper [here](https://ieee-datapo
 GAN: See https://github.com/lucidrains/lightweight-gan
 
 ## Feedback
-For questions and comments, feel free to contact [Yuki Shimizu](de104004@edu.osakafu-u.ac.jp).
+For questions and comments, feel free to contact [Yuki Shimizu](yshimizu@fc.ritsumei.ac.jp).
 
 ## License
 MIT
