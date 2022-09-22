@@ -1,10 +1,10 @@
 # IPMSM-automatic-design
-Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors (https://www.techrxiv.org/articles/preprint/Automatic_Design_System_with_Generative_Adversarial_Network_and_Convolutional_Neural_Network_for_Optimization_Design_of_Interior_Permanent_Magnet_Synchronous_Motor/17072852)
+Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors (https://ieeexplore.ieee.org/document/9896140)
 
 ![generated_rotor_shapes](https://user-images.githubusercontent.com/75551755/143835458-ea355f78-fac2-4840-b9df-3b36253ba7ae.gif)
 
 ## Overview
-This library contains a Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors as presented in [[1]](https://www.techrxiv.org/articles/preprint/Automatic_Design_System_with_Generative_Adversarial_Network_and_Convolutional_Neural_Network_for_Optimization_Design_of_Interior_Permanent_Magnet_Synchronous_Motor/17072852)
+This library contains a Pytorch implementation of an automatic design system for interior permanent magnet synchronous motors as presented in [[1]](https://ieeexplore.ieee.org/document/9896140)
 
 ## Dependencies
 - python>=3.8
@@ -28,5 +28,5 @@ MIT
 ```
 [1] Y. Shimizu, S. Morimoto, M. Sanada, and Y. Inoue, “Automatic Design System with Generative  
 Adversarial Network and Convolutional Neural Network for Optimization Design of Interior  
-Permanent Magnet Synchronous Motor,” Submitted
+Permanent Magnet Synchronous Motor,” IEEE Trans. Energy Convers., Accepted
 ```
