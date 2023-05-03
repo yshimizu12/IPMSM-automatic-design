@@ -28,5 +28,5 @@ MIT
 ```
 [1] Y. Shimizu, S. Morimoto, M. Sanada, and Y. Inoue, “Automatic Design System with Generative  
 Adversarial Network and Convolutional Neural Network for Optimization Design of Interior  
-Permanent Magnet Synchronous Motor,” IEEE Trans. Energy Convers., Accepted
+Permanent Magnet Synchronous Motor,” IEEE Trans. Energy Convers., Vol. 38, No. 1, pp. 724-734, 2023.
 ```
